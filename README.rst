@@ -32,7 +32,7 @@ Simply add the app in your installed apps list in settings.py
 
     INSTALLED_APPS = (
         ...
-        'django-brightcove'
+        'gipsy_toolbar'
         ...
     )
 
