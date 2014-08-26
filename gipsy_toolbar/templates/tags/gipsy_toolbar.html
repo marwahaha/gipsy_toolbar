@@ -1,0 +1,27 @@
+{% load i18n %}
+<img src="{{ logo }}">
+
+<ul>
+    <li{% if not is_admin %} class="active"{% endif %}><a href="/">{% trans 'Visit site' %}</a></li>
+    <li{% if is_admin %} class="active"{% endif %}><a href="{% url 'admin:index' %}">{% trans 'Dashboard' %}</a></li>
+</ul>
+
+<ul>
+    {% for item in items %}
+    <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+    {% endfor %}
+</ul>
+
+{% if user.is_active and user.is_staff %}
+<div id="user-tools">
+    {% trans 'Welcome,' %}
+    <strong>{% firstof user.get_short_name user.get_username %}</strong>.
+    {% block userlinks %}
+        {% url 'django-admindocs-docroot' as docsroot %}
+        {% if user.has_usable_password %}
+        <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a> /
+        {% endif %}
+        <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
+    {% endblock %}
+</div>
+{% endif %}
