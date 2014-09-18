@@ -17,3 +17,7 @@ class GipsyToolbarMenu(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    @property
+    def children(self):
+        return GipsyToolbarMenu.objects.filter(parent=self.pk)

@@ -5,20 +5,32 @@
     <div class="gipsy_toolbar">
         <div class="gipsy_toolbar__inner">
             <div class="gipsy_toolbar__logo">
-                <img src="static/img/logo_backoffice-01.png" alt="">
+                <img src="{{ logo }}" alt="">
             </div>
             <div class="gipsy_toolbar__links">
                 <ul class="gipsy_toolbar__nav">
-                    <li{% if not is_admin %} class="active"{% endif %}><a href="/">{% trans 'Visit site' %}</a></li>
-                    <li{% if is_admin %} class="active"{% endif %}><a href="{% url 'admin:index' %}">{% trans 'Dashboard' %}</a></li>
+                    <li class="nav__item{% if not is_admin %} nav__item__active{% endif %}"><a href="/">{% trans 'Visit site' %}</a></li>
+                    <li class="nav__item{% if is_admin %} nav__item__active{% endif %}"><a href="{% url 'admin:index' %}">{% trans 'Dashboard' %}</a></li>
                 </ul>
-                <!--
-                <ul>
+                
+                <ul class="gipsy_toolbar__menu">
                     {% for item in items %}
-                    <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+                    <li>
+                        <a href="{{ item.url }}">
+                            {{ item.name }}
+                            {% if item.children %}<i class="fa fa-chevron-down"></i>{% endif %}
+                        </a>
+                        {% if item.children %}
+                            <ul>
+                            {% for child in item.children %}
+                                <li><a href="{{ child.url }}">{{ child.name }}</a></li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
                     {% endfor %}
                 </ul>
-                -->
+                
                 <ul class="gipsy_toolbar__user">
                     <li class="user__item">
                         <a href="#">{% firstof user.get_short_name user.get_username %}</a>
@@ -36,5 +48,28 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+var GipsyToolbar = {
+    initiated: false,
+    
+    init: function() {
+        if (this.initiated === true) {
+            return false;
+        }
+        this.createLink("{{ STATIC_URL }}gipsy_toolbar/css/gipsy_toolbar.css");
+        this.createLink("//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
+        this.initiated = true;
+    },
+    
+    createLink: function(url){
+        var stylesheet = document.createElement("link");
+        stylesheet.setAttribute("rel", "stylesheet");
+        stylesheet.setAttribute("type", "text/css");
+        stylesheet.setAttribute("href", url);
+        document.getElementsByTagName("head")[0].appendChild(stylesheet);
+    }
+}
+GipsyToolbar.init();
+</script>
 {% endif %}
-        

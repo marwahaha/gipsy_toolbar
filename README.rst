@@ -41,6 +41,12 @@ Then install your model with
 .. code-block::  shell
 
     python manage.py syncdb
+
+In case you are using South, you can alternatively do:
+
+.. code-block::  shell
+
+    python manage.py migrate gipsy_toolbar
     
     
 Setup your menu items in the admin.
@@ -52,5 +58,7 @@ And finaly, install the toolbar in your templates with a template tag:
     {% load gipsy_toolbar %}
     
     {% gipsy_toolbar %}
+
+For the admin part, you will need to overwrite templates with the same code as above: {templates}/admin/base.html 
 
 Please feel free to contribute.

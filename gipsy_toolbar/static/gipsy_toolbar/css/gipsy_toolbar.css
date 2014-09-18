@@ -1,4 +1,5 @@
 .gipsy_toolbar-container {
+    line-height: 16px;
     padding-top: 40px;
 }
 .gipsy_toolbar {
@@ -24,12 +25,15 @@
 }
 .gipsy_toolbar__logo img {
     display: inline;
+    max-height: 28px;
+    max-width: 184px;
 }
 .gipsy_toolbar__links {
     height: 40px;
     background: #2e3641;
 }
 .gipsy_toolbar__nav,
+.gipsy_toolbar__menu,
 .gipsy_toolbar__user,
 .gipsy-user-sub {
     margin: 0;
@@ -72,6 +76,60 @@
     border-width: 6px 6px 0 6px;
     border-color: #6098d1 transparent transparent transparent;
     
+}
+.gipsy_toolbar__menu {
+    float: left;
+    margin: 0 10%; 
+}
+.gipsy_toolbar__menu > li {
+    color: #fff;
+    float: left;
+    display: block;
+    padding: 12px;
+    position: relative;
+}
+.gipsy_toolbar__menu > li > a {
+    color: #fff;
+}
+.gipsy_toolbar__menu > li:hover {
+    background-color: #6098d1;
+}
+.gipsy_toolbar__menu > li > ul {
+    background-clip: padding-box;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+    display: none;
+    float: left;
+    font-size: 14px;
+    left: 0;
+    list-style: none outside none;
+    margin: 0;
+    min-width: 160px;
+    padding: 5px 0;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    z-index: 1000;
+}
+
+.gipsy_toolbar__menu > li:hover > ul {
+    display: block;
+}
+.gipsy_toolbar__menu > li > ul > li > a {
+    clear: both;
+    color: #333333;
+    display: block;
+    font-weight: normal;
+    line-height: 1.42857;
+    padding: 3px 20px;
+    white-space: nowrap;
+}
+.gipsy_toolbar__menu > li > ul > li > a:hover {
+    background-color: whitesmoke;
+    text-decoration: none;
+    color: #262626;
 }
 .gipsy_toolbar__user {
     float: right;
