@@ -21,3 +21,7 @@ class GipsyToolbarMenu(models.Model):
     @property
     def children(self):
         return GipsyToolbarMenu.objects.filter(parent=self.pk)
+
+    @property
+    def url_has_domain(self):
+        return self.url.startswith('http')
