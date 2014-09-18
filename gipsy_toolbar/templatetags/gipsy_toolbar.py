@@ -23,6 +23,10 @@ def gipsy_toolbar(context, *args, **kwargs):
     """
     context['items'] = GipsyToolbarMenu.objects.filter(parent__isnull=True).order_by('order')
     context['logo'] = kwargs.get('logo', '')
+
+    if hasattr(settings, 'ESI_ENABLED') and settings.ESI_ENABLED:
+        context['esi'] = settings.ESI_ENABLED
+
     if not context['logo']:
         if hasattr(settings, 'GIPSY_TOOLBAR_LOGO') and settings.GIPSY_TOOLBAR_LOGO:
             context['logo'] = settings.GIPSY_TOOLBAR_LOGO

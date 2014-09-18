@@ -1,5 +1,6 @@
 {% load i18n %}
 
+{% if esi %}<!--esi{% endif %}
 {% if user.is_active and user.is_staff %}
 <div class="gipsy_toolbar-container">
     <div class="gipsy_toolbar">
@@ -73,3 +74,4 @@ var GipsyToolbar = {
 GipsyToolbar.init();
 </script>
 {% endif %}
+{% if esi %}-->{% endif %}
