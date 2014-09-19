@@ -146,9 +146,13 @@
     top: 40px;
     display: none;
     background: #6098d1;
+    color: #fff;
 }
 .gipsy_toolbar__user .user__item:hover .gipsy-user-sub {
     display: block;
+}
+.gipsy_toolbar__user .user__item > a {
+    color: #fff;
 }
 .gipsy-user-sub .user__sub-item > a {
     display: block;

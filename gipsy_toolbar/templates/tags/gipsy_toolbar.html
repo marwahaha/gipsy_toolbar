@@ -38,7 +38,8 @@
                 
                 <ul class="gipsy_toolbar__user">
                     <li class="user__item">
-                        <a href="#">{% firstof user.get_short_name user.get_username %}</a>
+                        <a href="#">{% firstof user.get_short_name user.get_username %} <i class="fa fa-chevron-down"></i></a>
+                        
                         <ul class="gipsy-user-sub">
                             <li class="user__sub-item">
                             {% if user.has_usable_password %}
