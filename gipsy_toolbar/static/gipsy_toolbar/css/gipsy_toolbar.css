@@ -117,14 +117,20 @@
 .gipsy_toolbar__menu > li:hover > ul {
     display: block;
 }
-.gipsy_toolbar__menu > li > ul > li > a {
+.gipsy_toolbar__menu > li > ul > li {
     clear: both;
-    color: #333333;
+    color: #999999;
     display: block;
+    font-size: 12px;
     font-weight: normal;
     line-height: 1.42857;
     padding: 3px 20px;
     white-space: nowrap;
+}
+.gipsy_toolbar__menu > li > ul > li > a {
+    color: #333333;
+    display: block;
+    font-size: 14px;
 }
 .gipsy_toolbar__menu > li > ul > li > a:hover {
     background-color: whitesmoke;
