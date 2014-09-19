@@ -61,10 +61,14 @@ And finaly, install the toolbar in your templates with a template tag:
 
 For the admin part, you will need to overwrite templates with the same code as above: {templates}/admin/base.html 
 
-If you are using Varnish you can use ESI in order to exclude the toolbar from caching. To do so, just add the following line to your settings.
+If you are using a cache engine such as Varnish, you can use a bundled middleware in order to set a cookie that you can use to deactivate cache to display the toolkbar for staff admins. Happy to hear abotu a cleaner solution.
 
 .. code-block::  python
 
-    ESI_ENABLED = True
+    MIDDLEWARE_CLASSES = (
+        ...
+        'gipsy_toolbar.middleware.GipsyToolbarMiddleware',
+        ...
+    )
 
 Please feel free to contribute.
