@@ -9,7 +9,8 @@ setup(
     version='0.0.1',
     author='Guillaume Pousseo',
     author_email='guillaumepousseo@revsquare.com',
-    description='Manages a toolbar for admins with shortcuts to easily navigate to most relevant admin features.',
+    description='Manages a toolbar for admins with shortcuts to easily navigate to most\
+                 relevant admin features.',
     long_description=open('README.rst').read(),
     url='http://www.revsquare.com',
     license='BSD License',
@@ -27,7 +28,7 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Documentation',
     ],
-    install_requires=[
-        'Django>=1.4',
+    dependency_links=[
+        'https://github.com/RevSquare/gipsy_tools#egg=gipsy_tools'
     ],
 )
