@@ -28,7 +28,7 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Documentation',
     ],
-    dependency_links=[
-        'https://github.com/RevSquare/gipsy_tools#egg=gipsy_tools'
+    install_requires=[
+        '-e git+https://github.com/RevSquare/gipsy_tools.git#egg=gipsy_tools-0.0.1',
     ],
 )
