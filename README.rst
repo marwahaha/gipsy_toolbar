@@ -8,19 +8,22 @@ This Django app manages a toolbar for admins with shortcuts to easily navigate t
 Install
 *******
 
-It is strongly recommanded to install this theme from GIT with PIP onto you project virtualenv.
+It is strongly recommanded to install this theme from GIT with PIP onto you project virtualenv. You will also need to install gipsy tools.
 
 Add this line to your requirements.txt file:
 
 .. code-block::  shell-session
 
     -e git+https://github.com/RevSquare/gipsy_toolbar#egg=gipsy_toolbar
+    -e git+https://github.com/RevSquare/gipsy_toolbar#egg=gipsy_tools
 
 And run:
 
 .. code-block::  shell-session
 
     pip install -r requirements.txt
+
+
 
 *****
 Setup
